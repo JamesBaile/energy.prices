@@ -1,0 +1,13 @@
+{
+  "name": "energy.enquiry-submitter",
+  "version": "1.0.0",
+  "description": "Submit an enquiry",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "express": "^4.14.1",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  }
+}
