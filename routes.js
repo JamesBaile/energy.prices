@@ -6,6 +6,29 @@ const express = require('express'),
       templateMapper = require('./template-mapper'),
       logger = global.logger
 
+
+router.get('/private/ping', (req, res, next) => {
+  res.send('pong');
+});
+
+router.get('/health', (req, res, next) => {
+  const result = {
+    serviceName: 'energy.prices',
+    isOk: true,
+    version: '1.0.0.5',
+    dependencies: [
+      {
+        serviceName: 'ehl',
+        isOk: true,
+        uri: 'http://myhost/',
+      },
+    ],
+  };
+  res.send(result);
+});
+
+
+
 router.get('/prices', (req, res, next) => {
  
     validateRequest(req);
@@ -38,7 +61,7 @@ function getBestPriceResponse(data){
   var saving = saving + data.results[0].energySupplies[0].expectedGasAnnualSavings;
 
   var supplier = data.results[0].energySupplies[0].supplier.name;
-  
+
   return { annualSaving : saving, supplier : supplier };
 }
 
