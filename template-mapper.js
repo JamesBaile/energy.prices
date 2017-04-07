@@ -2,8 +2,8 @@
 
 module.exports.fillPostcodeTemplate = function(template, details) {
   template['data-template'].groups[0].items.find(i => i.name === 'postcode').data=details.postcode;
-  template['data-template'].groups[1].items.find(i => i.name === 'apiKey').data='4071c577-513c-4e33-93d8-c7135122f167';
-  template['data-template'].groups[1].items.find(i => i.name === 'partnerReference').data='CTMTest';
+  template['data-template'].groups[1].items.find(i => i.name === 'apiKey').data=process.env.API_KEY;
+  template['data-template'].groups[1].items.find(i => i.name === 'partnerReference').data=process.env.PARTNER;
   return template;
 }
 
