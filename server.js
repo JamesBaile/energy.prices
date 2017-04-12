@@ -4,10 +4,10 @@ const app = require('express')();
 
 var port = process.env.PORT || 3002;
 
-console.log("PORT = " + port);
-console.log("PRTNER = " + process.env.PARTNER);
-console.log("API_KEY = " + process.env.API_KEY);
-console.log("EHL_ENDPOINT = " + process.env.EHL_ENDPOINT);
+console.log(`PORT: ${port}`);
+console.log(`PRTNER: ${process.env.PARTNER}`);
+console.log(`API_KEY: ${process.env.API_KEY}`);
+console.log(`EHL_ENDPOINT: ${process.env.EHL_ENDPOINT}`);
 
 app.use('/', require('./routes'));
 
@@ -46,7 +46,8 @@ app.use((err, req, res, next) => {
 
   return res.status(responseStatus).json({
     statusCode: responseStatus,
-    message: responseMessage
+    message: responseMessage,
+    error: err
   });
 })
 
